@@ -78,7 +78,7 @@ def calculate_mode(numbers):
 
     max_count = max(frequency.values())
     mode_output = [key for key, value in frequency.items() if value == max_count]
-    return mode_output
+    return max(mode_output)
 
 #  Compute Variance
 def calculate_variance(numbers, mean_output):
@@ -125,7 +125,7 @@ def print_results(results,elapsed_time,calculation_time,file_name):
     print(result_output) # Print to console
 
     # Write to file
-    with open("StatisticsResults.txt", 'w', encoding='utf-8') as file:
+    with open("StatisticsResults_"+file_name, 'w', encoding='utf-8') as file:
         file.write(result_output)
 
 #Main Function
