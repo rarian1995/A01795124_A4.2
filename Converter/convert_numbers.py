@@ -82,7 +82,7 @@ def convert_hexadecimal(number):
     return sign + hexadecimal_output
 
 # Printing Results
-def print_results(results,elapsed_time,calculation_time):
+def print_results(results,elapsed_time,calculation_time,file_name):
     '''
     Print results in console and output file ConvertionResults.txt.
     '''
@@ -97,7 +97,7 @@ def print_results(results,elapsed_time,calculation_time):
     print(result_output) # Print to console
 
     # Write to file
-    with open("ConvertionResults.txt", 'w', encoding='utf-8') as file:
+    with open("ConvertionResults_"+file_name, 'w', encoding='utf-8') as file:
         file.write(result_output)
 
 #Main Function
@@ -143,7 +143,7 @@ def main():
     elapsed_time = end_time - start_time
 
     # Print and save results
-    print_results(results,elapsed_time,calculation_time)
+    print_results(results,elapsed_time,calculation_time,file_name)
 
 if __name__ == "__main__":
     main()
