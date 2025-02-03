@@ -39,10 +39,10 @@ def find_frequency_distinct_words(words):
     for word in words:
         # Check if the word already exists
         found = False
-        for i, word in enumerate(word_frequency):
-            if word_frequency[i][0] == word:
+        for i, (existing_word, count) in enumerate(word_frequency):
+            if existing_word == word:
                 # Word found, increment its frequency
-                word_frequency[i] = (word, word_frequency[i][1] + 1)
+                word_frequency[i] = (existing_word, count + 1)
                 found = True
                 break
 
@@ -64,7 +64,6 @@ def print_results(results,elapsed_time,calculation_time,file_name):
     # Initialize the total frequency
     total_frequency = 0
 
-
     # Add the results for each word
     for word, word_frequency in results:
         result_output += f"{word:<30}{word_frequency:<10}\n"
@@ -79,7 +78,7 @@ def print_results(results,elapsed_time,calculation_time,file_name):
     print(result_output) # Print to console
 
     # Write to file
-    with open("WordCountResults.txt", 'w', encoding='utf-8') as file:
+    with open("WordCountResults_"+file_name, 'w', encoding='utf-8') as file:
         file.write(result_output)
 
 #Main Function
